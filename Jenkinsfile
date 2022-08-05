@@ -5,14 +5,13 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Starting build steps..'
-                mvn  clean
-                mvn  install
+                sh 'mvn  clean'
+                sh 'mvn  install'
             }
         }
         stage('Test') {
             steps {
                 echo 'Running mvn tests...'
-                mvn test
             }
         }
         stage('Pack jar into docker') {
